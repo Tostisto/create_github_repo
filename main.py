@@ -1,7 +1,8 @@
 import requests
 import argparse
+import os
+from setup import GITHUB_USER, GITHUB_TOKEN
 
-GITHUB_TOKEN = "YOUR_GITHUB_TOKEN"
 GITHUB_URL = "https://api.github.com"
 
 parser = argparse.ArgumentParser()
@@ -22,3 +23,5 @@ header = {
 }
 
 repo = requests.post(GITHUB_URL + "/user/repos", data=payload, headers=header)
+
+os.system("git clone https://github.com/" + GITHUB_USER + "/" + repo_name)
